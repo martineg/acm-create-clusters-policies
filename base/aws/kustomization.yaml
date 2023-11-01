@@ -21,8 +21,8 @@ patches:
       kind: ManagedCluster
    path: managedcluster.yml
 
-# ## patch the MachinePool to define vsphere specific platform details
-#  - target:
-#       kind: MachinePool
-#       name: worker-machinepool
-#    path: worker-machinepool.yml
+## patch the MachinePool to define vsphere specific platform details
+ - target:
+      kind: MachinePool
+      name: worker-machinepool
+   path: worker-machinepool.yml

@@ -11,6 +11,7 @@ There are 2 main directories: `base` and `clusters`
   - The cluster configuration includes the Cloud specific configuration.
   - Each cluster definition is transformed by kustomize before it is added to the policy in the PolicyGenerator
 
+There is an example Credentials secret in the "**hub-data**" directory to showcase the required objects that need to be on the hub.  This repository expects the Credentials and Placement details to already be on the Hub or to be otherwise managed.  You could add the required Placements to this repository to make a more complete process.
 
 ### Adding a new cluster
 To add a new cluster requires a few simple steps.
@@ -82,7 +83,7 @@ A more indepth review of the files needed in the cluster directory
   The namespace must match the name of the cluster.
   The `resources` block must include the cloud base you are deploying the cluster to
   The generated ConfigMap contains attributes needed to build the cluster.
-  If you wish to include additional customizations to the output objects you can add them to the patches block similar to how the ManagedCluster is.
+  If you wish to include additional customizations to the output objects you can add them to the patches block similar to how the ManagedCluster is.  This is demonstrated in the bry-aws cluster with adding the zones to the MachinePool.
   ```
   apiVersion: kustomize.config.k8s.io/v1beta1
   kind: Kustomization
