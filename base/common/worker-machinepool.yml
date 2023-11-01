@@ -1,0 +1,12 @@
+apiVersion: hive.openshift.io/v1
+kind: MachinePool
+metadata:
+  name: worker-machinepool
+  namespace: cluster-name
+spec:
+  clusterDeploymentRef:
+    name: cluster-name
+  name: worker
+  autoscaling:
+    minReplicas: 2 
+    maxReplicas: 2

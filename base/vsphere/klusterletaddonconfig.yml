@@ -1,0 +1,7 @@
+apiVersion: agent.open-cluster-management.io/v1
+kind: KlusterletAddonConfig
+metadata:
+  name: cluster-name ## needs to be present, but does not matter
+spec:
+  clusterLabels:
+    cloud: vSphere

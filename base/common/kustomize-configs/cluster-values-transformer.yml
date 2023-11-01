@@ -1,0 +1,51 @@
+apiVersion: builtin
+kind: ReplacementTransformer
+metadata:
+  name: set-cluster-values
+replacements:
+- source: 
+    kind: ConfigMap
+    name: set-cluster-values
+    fieldPath: data.clusterSet
+  targets:
+  - select:
+      kind: ClusterDeployment
+    fieldPaths: 
+    - metadata.labels.[cluster.open-cluster-management.io/clusterset]
+    options:
+      create: true
+
+  - select:
+      kind: ManagedCluster
+    fieldPaths: 
+    - metadata.labels.[cluster.open-cluster-management.io/clusterset]
+    options:
+      create: true
+
+
+- source: 
+    kind: ConfigMap
+    name: set-cluster-values
+    fieldPath: data.imageSetRefName
+  targets:
+  - select:
+      kind: ClusterDeployment
+    fieldPaths: 
+    - spec.provisioning.imageSetRef.name
+    options:
+      create: true
+
+- source: 
+    kind: ConfigMap
+    name: set-cluster-values
+    fieldPath: data.autoScaleMaxWorkerNodes
+  targets:
+  - select:
+      kind: MachinePool
+      name: worker-machinepool
+    fieldPaths: 
+    - spec.autoscaling.maxReplicas
+    options:
+      create: true
+
+  

@@ -1,0 +1,21 @@
+nameReference:
+- kind: Namespace
+  fieldSpecs:
+  - kind: ClusterDeployment
+    path: metadata/name
+  - kind: ClusterDeployment
+    path: spec/clusterName
+
+  - kind: MachinePool
+    apiVersion: hive.openshift.io/v1
+    path: spec/clusterDeploymentRef/name
+
+  - kind: KlusterletAddonConfig
+    path: spec/clusterName
+  - kind: KlusterletAddonConfig
+    path: spec/clusterNamespace
+
+  - kind: ManagedCluster
+    path: metadata/name
+  - kind: ManagedCluster
+    path: metadata/labels/name

@@ -1,0 +1,36 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+
+## specify the namespace to match the name of the cluster.
+## this set the namespace on objects included in the policy, not the policy itself
+namespace: ocp01
+
+
+## include any additional objects that should be part of the policy
+resources:
+  - ../../base/vsphere/
+  - install-config-secret.yml
+
+## Set cluster values for clusterset and imageset.
+## If you want a custom ImageSet - add a custome file to resources above and set the name below
+## The transformer below includes these values in the final policy
+generatorOptions:
+ disableNameSuffixHash: true
+
+configMapGenerator:
+  - name: set-cluster-values
+    literals:
+    - clusterSet=prod
+    - imageSetRefName=img4.13.16-multi-appsub
+    - autoScaleMaxWorkerNodes=5
+
+
+## patch the managed cluster to define cluster specific lables
+patches:
+  - target:
+      kind: ManagedCluster
+    path: managedcluster.yml
+
+transformers:
+  - ../../base/common/kustomize-configs/
