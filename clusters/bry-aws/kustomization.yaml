@@ -4,12 +4,12 @@ kind: Kustomization
 
 ## specify the namespace to match the name of the cluster.
 ## this set the namespace on objects included in the policy, not the policy itself
-namespace: ocp01
+namespace: bry
 
 
 ## include any additional objects that should be part of the policy
 resources:
-  - ../../base/vsphere/
+  - ../../base/aws/
   - install-config-secret.yml
 
 ## Set cluster values for clusterset and imageset.
@@ -21,9 +21,11 @@ generatorOptions:
 configMapGenerator:
   - name: set-cluster-values
     literals:
-    - clusterSet=prod
+    - region=ap-southeast-1
+    - clusterSet=prod-clusters
     - imageSetRefName=img4.13.16-multi-appsub
     - autoScaleMaxWorkerNodes=5
+
 
 ## patch the managed cluster to define cluster specific lables
 patches:
@@ -31,5 +33,10 @@ patches:
       kind: ManagedCluster
     path: managedcluster.yml
 
+  - target:
+      kind: MachinePool
+    path: worker-machinepool.yml
+
 transformers:
   - ../../base/common/kustomize-configs/
+  - ../../base/common/kustomize-configs/aws/

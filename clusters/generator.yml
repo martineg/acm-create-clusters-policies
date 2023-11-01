@@ -15,13 +15,14 @@ policies:
   - name: ocp01-cluster
     remediationAction: enforce
     manifests:
-      - path: ocp01/
+      - path: ocp01-vsphere/
         complianceType: musthave
-
+      - path: bry-aws/
+        complianceType: musthave
 
 
 
 policySets:
   - name: openshift-clusters
     placement:
-      placementRuleName: "hub-only"
+      placementName: "hub-only"

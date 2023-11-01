@@ -1,0 +1,20 @@
+apiVersion: builtin
+kind: ReplacementTransformer
+metadata:
+  name: set-aws-cluster-values
+replacements:
+- source: 
+    kind: ConfigMap
+    name: set-cluster-values
+    fieldPath: data.region
+  targets:
+  - select:
+      kind: ClusterDeployment
+    fieldPaths: 
+    - metadata.labels.region
+    - spec.platform.aws.region
+
+  - select:
+      kind: ManagedCluster
+    fieldPaths: 
+    - metadata.labels.region
