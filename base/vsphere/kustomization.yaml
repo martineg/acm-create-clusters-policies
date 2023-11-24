@@ -9,6 +9,7 @@ resources:
   - ssh-privatekey-secret.yml
   - vsphere-certs-secret.yml
   - vsphere-creds-secret.yml
+  - rh-pull-secret.yml
 
 ## patch the klusterletAddonConfig to define cluster specific labels
 patches:

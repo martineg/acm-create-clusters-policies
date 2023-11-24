@@ -10,6 +10,5 @@ resources:
   - namespace.yml
   - klusterletaddonconfig.yml
   - managedcluster.yml
-  - rh-pull-secret.yml
   - worker-machinepool.yml
 

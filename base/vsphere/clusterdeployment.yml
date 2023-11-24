@@ -8,7 +8,7 @@ metadata:
   name: cluster-name
   namespace: cluster-name
 spec:
-  baseDomain: '{{ fromSecret "cluster-provider-infra" "vsphere-creds" "baseDomain" }}'
+  baseDomain: '{{ (fromSecret "cluster-provider-infra" "vsphere-creds" "baseDomain") | base64dec }}'
   clusterName: cluster-name
   controlPlaneConfig:
     servingCertificates: {}
@@ -17,14 +17,14 @@ spec:
     vsphere:
       certificatesSecretRef:
         name: vsphere-cert
-      cluster: '{{ fromSecret "cluster-provider-infra" "vsphere-creds" "cluster" }}'
+      cluster: '{{ (fromSecret "cluster-provider-infra" "vsphere-creds" "cluster") | base64dec }}'
       credentialsSecretRef:
         name: vsphere-creds
-      datacenter: '{{ fromSecret "cluster-provider-infra" "vsphere-creds" "datacenter" }}'
-      defaultDatastore: '{{ fromSecret "cluster-provider-infra" "vsphere-creds" "defaultDatastore" }}'
-      folder: '{{ fromSecret "cluster-provider-infra" "vsphere-creds" "vsphereFolder" }}'
+      datacenter: '{{ (fromSecret "cluster-provider-infra" "vsphere-creds" "datacenter") | base64dec }}'
+      defaultDatastore: '{{ (fromSecret "cluster-provider-infra" "vsphere-creds" "defaultDatastore") | base64dec }}'
+      folder: '{{ (fromSecret "cluster-provider-infra" "vsphere-creds" "vsphereFolder") | base64dec }}'
       network: xxx
-      vCenter: '{{ fromSecret "cluster-provider-infra" "vsphere-creds" "vCenter" }}'
+      vCenter: '{{ (fromSecret "cluster-provider-infra" "vsphere-creds" "vCenter") | base64dec }}'
   provisioning:
     imageSetRef:
       name: img4.12.6-multi-appsub

@@ -45,7 +45,7 @@ A more indepth review of the files needed in the cluster directory
     remediationAction: enforce
     severity: low
     object-templates-raw: |
-      {{- $vc := (lookup "v1" "Secret" "cluster-provider-infr" "vsphere-creds") }}
+      {{- $vc := (lookup "v1" "Secret" "cluster-provider-infra" "vsphere-creds") }}
       {{- $installConfig := `
       apiVersion: v1
       baseDomain: '%[1]s'

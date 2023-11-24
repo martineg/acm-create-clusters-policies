@@ -9,7 +9,7 @@ metadata:
   name: cluster-name
   namespace: cluster-name
 spec:
-  baseDomain: '{{ fromSecret "cluster-provider-infra" "aws-creds" "baseDomain" }}'
+  baseDomain: '{{ (fromSecret "cluster-provider-infra" "aws-creds" "baseDomain") | base64dec }}'
   clusterName: cluster-name
   controlPlaneConfig:
     servingCertificates: {}
