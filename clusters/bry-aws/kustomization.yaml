@@ -10,7 +10,6 @@ namespace: bry
 ## include any additional objects that should be part of the policy
 resources:
   - ../../base/aws/
-  - install-config-secret.yml
 
 ## Set cluster values for clusterset and imageset.
 ## If you want a custom ImageSet - add a custome file to resources above and set the name below
@@ -40,6 +39,8 @@ patches:
       kind: MachinePool
     path: worker-machinepool.yml
 
+
 transformers:
   - ../../base/common/kustomize-configs/
   - ../../base/common/kustomize-configs/aws/
+

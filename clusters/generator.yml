@@ -15,11 +15,17 @@ policies:
   - name: ocp-cluster-policies
     remediationAction: enforce
     manifests:
-     # - path: ocp01-vsphere/
-     #   complianceType: mustnothave
+      - path: ocp01-vsphere/
+        complianceType: mustnothave
+      - path: ocp01-vsphere/install-config-secret.yml
+        complianceType: mustnothave
+
       - path: bry-aws/
         complianceType: musthave
-
+      - path: bry-aws/
+        complianceType: musthave
+      - path: bry-aws/install-config-secret.yml
+        complianceType: musthave
 
 
 policySets:

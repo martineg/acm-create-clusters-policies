@@ -4,7 +4,7 @@ kind: Kustomization
 configurations:
   ## configure kustomize to correct the name of the Policy namespace in the Policy dependency
   - ./kustomize-configs/namespace-namereference.yml
-  
+ 
 ## include all files that should be included as part of the base objects
 resources:
   - namespace.yml

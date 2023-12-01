@@ -10,7 +10,6 @@ namespace: ocp01
 ## include any additional objects that should be part of the policy
 resources:
   - ../../base/vsphere/
-  - install-config-secret.yml
 
 ## Set cluster values for clusterset and imageset.
 ## If you want a custom ImageSet - add a custome file to resources above and set the name below
