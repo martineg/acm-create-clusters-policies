@@ -23,7 +23,7 @@ configMapGenerator:
     literals:
     - region=ap-southeast-1
     - clusterSet=prod-clusters
-    - imageSetRefName=img4.13.16-multi-appsub
+    - imageSetRefName=img4.13.18-multi-appsub
     - autoScaleMaxWorkerNodes=5
 
 
