@@ -12,11 +12,11 @@ placementBindingDefaults:
   name: "openshift-cluster-binding"
 
 policies:
-  - name: ocp01-cluster
+  - name: ocp-cluster-policies
     remediationAction: enforce
     manifests:
-      - path: ocp01-vsphere/
-        complianceType: musthave
+     # - path: ocp01-vsphere/
+     #   complianceType: mustnothave
       - path: bry-aws/
         complianceType: musthave
 
