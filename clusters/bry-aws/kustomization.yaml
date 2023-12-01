@@ -15,12 +15,15 @@ resources:
 ## Set cluster values for clusterset and imageset.
 ## If you want a custom ImageSet - add a custome file to resources above and set the name below
 ## The transformer below includes these values in the final policy
+## NOTE the worker MachinePool must be named ClusterName-worker.  
+##     This is set in workerMPName below
 generatorOptions:
  disableNameSuffixHash: true
 
 configMapGenerator:
   - name: set-cluster-values
     literals:
+    - workerMPName=bry-worker
     - region=ap-southeast-1
     - clusterSet=prod-clusters
     - imageSetRefName=img4.13.18-multi-appsub
