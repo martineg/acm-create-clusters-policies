@@ -11,6 +11,8 @@ nameReference:
     path: spec/clusterDeploymentRef/name
 
   - kind: KlusterletAddonConfig
+    path: metadata/name
+  - kind: KlusterletAddonConfig
     path: spec/clusterName
   - kind: KlusterletAddonConfig
     path: spec/clusterNamespace
