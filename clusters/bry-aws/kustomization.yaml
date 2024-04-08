@@ -24,7 +24,7 @@ configMapGenerator:
     literals:
     - workerMPName=bry-worker
     - region=ap-southeast-1
-    - clusterSet=prod-clusters
+    - clusterSet=dev-clusters
     - imageSetRefName=img4.13.18-multi-appsub
     - autoScaleMaxWorkerNodes=5
 
