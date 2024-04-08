@@ -3,4 +3,4 @@ kind: ManagedCluster
 metadata:
   name: cluster-name  ## needs to be present, but does not matter
   labels:
-    env: prod
+    env: dev
