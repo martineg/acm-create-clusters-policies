@@ -20,9 +20,9 @@ policies:
       # - path: ocp01-vsphere/install-config-secret.yml
       #   complianceType: mustnothave
 
-      - path: bry-aws/
+      - path: meggen-lab-aws
         complianceType: musthave
-      - path: bry-aws/install-config-secret.yml
+      - path: meggen-lab-aws/install-config-secret.yml
         complianceType: musthave
 
 

@@ -1,0 +1,16 @@
+apiVersion: hive.openshift.io/v1
+kind: MachinePool
+metadata:
+  name: worker-machinepool
+spec:
+  platform:
+    aws:
+      rootVolume:
+        iops: 2000
+        size: 120
+        type: io1
+      type: c5.4xlarge
+      zones:
+      - eu-west-1a
+      - eu-west-1b
+      - eu-west-1c
